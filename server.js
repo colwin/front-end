@@ -1,3 +1,4 @@
+const tracer = require('dd-trace').init();
 var request      = require("request")
   , express      = require("express")
   , morgan       = require("morgan")
