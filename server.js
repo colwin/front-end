@@ -1,4 +1,7 @@
-const tracer = require('dd-trace').init();
+const tracer = require('dd-trace').init({
+  hostname: process.env.DD_AGENT_HOST,
+  port: 8126
+ });
 var request      = require("request")
   , express      = require("express")
   , morgan       = require("morgan")
