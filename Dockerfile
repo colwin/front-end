@@ -11,7 +11,7 @@ COPY yarn.lock /usr/src/app/
 RUN chown myuser /usr/src/app/yarn.lock
 
 USER myuser
-RUN yarn install
+RUN yarn install && yarn cache clean
 
 COPY . /usr/src/app
 
