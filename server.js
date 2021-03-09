@@ -2,7 +2,7 @@ const tracer = require('dd-trace').init({
   hostname: process.env.DD_AGENT_HOST,
   port: 8126
  });
-import { datadogRum } from '@datadog/browser-rum'
+import  datadogRum from '@datadog/browser-rum'
 var request      = require("request")
   , express      = require("express")
   , morgan       = require("morgan")
