@@ -2,6 +2,7 @@ const tracer = require('dd-trace').init({
   hostname: process.env.DD_AGENT_HOST,
   port: 8126
  });
+import { datadogRum } from '@datadog/browser-rum'
 var request      = require("request")
   , express      = require("express")
   , morgan       = require("morgan")
@@ -19,6 +20,17 @@ var request      = require("request")
   , metrics      = require("./api/metrics")
   , app          = express()
 
+
+datadogRum.init({
+    applicationId: 'c3f370e8-3999-42ff-a56c-b7ea047d5fa5',
+    clientToken: 'pub2042bd5d9cc35fa910d702e599e8f84c',
+    site: 'datadoghq.com',
+    service: 'Sock Shop - Frontend',
+    env: 'production',
+    version: '1.0',
+    sampleRate: 100,
+    trackInteractions: true
+});
 
 app.use(helpers.rewriteSlash);
 app.use(metrics);
